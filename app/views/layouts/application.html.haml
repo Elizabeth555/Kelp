@@ -3,10 +3,14 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Kelp
+    = stylesheet_link_tag 'bubbles', media:'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+
+  %body.bubbles
+  = javascript_include_tag 'bubbles', 'data-turbolinks-track' => true
+  <a class="bubble-toggle" href="#">Bubbles Off</a>
   #container
     %header
       %nav.navbar.navbar-default
@@ -67,7 +71,3 @@
             %li
               %a{:href => "#"} Separated link
 =yield
-    
-   
-
-
