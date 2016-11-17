@@ -30,4 +30,11 @@ RSpec.describe Restaurant, type: :model do
     expect(restaurant.user).to eq user
   end
 
+  it "shouldn't create a restaurant with the the same name" do
+    restaurant
+    restaurant2 = Restaurant.new(name: "Tayyabs", description: "Great Indian Restaurant",
+  		user_id: user.id)
+      expect{restaurant2.save}.to_not change{Restaurant.count}
+  end
+
 end
